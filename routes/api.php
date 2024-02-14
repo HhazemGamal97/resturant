@@ -26,3 +26,11 @@ Route::prefix('auth')->group(function() {
 });
 
 
+Route::middleware('auth:sanctum')->group(function(){
+    Route::post('logout', [AuthController::class, 'logout']);
+    Route::get('show_profile', [AuthController::class, 'show_profile']);
+    Route::post('update_profile', [AuthController::class, 'update_userData']);
+    Route::post('update_password', [AuthController::class, 'password']);
+});
+
+
